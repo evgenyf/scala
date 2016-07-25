@@ -24,4 +24,16 @@ class Option1Spec  extends FlatSpec with Matchers {
     Some("String") getOrElse (1, 2) shouldBe  "String"
   }
 
+
+
+  ////////////////
+/*  "GetOrElse on Some" should "return returns get" in {
+    Some("String") flatMap  (1, 2) shouldBe  "String"
+  }
+  "GetOrElse on Some" should "return returns get" in {
+    Some("String") filter  (1, 2) shouldBe  "String"
+  }
+  "GetOrElse on Some" should "return returns get" in {
+    Some("String") orElse  (1, 2) shouldBe  "String"
+  }*/
 }

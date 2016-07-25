@@ -16,6 +16,30 @@ object Option1 {
       case None => default
       case Some(a) => a
     }
+
+    def flatMap[B](f: A => Option[B]): Option[B]= this match {
+      case None => None
+      case Some(a) => f(a)
+    }
+
+    def orElse[B >: A](ob: => Option[B]): Option[B] = this match{
+
+      case Some(a) => Some(a)
+      case None => ob
+    }
+
+    def filter(f: A => Boolean): Option[A] = this match{
+      case Some(a) if( f(a)) => Some(a)
+      case _ => None
+    }
+
+    def lift[A,B](f: A => B): Option[A] => Option[B] = {
+      def fun = ( a:Option[A] ) => a.map( f )
+      fun
+    }
+
+    //def sequence[A](a: List[Option[A]]): Option[List[A]]
+
   }
 
   object None extends Option[Nothing]
